@@ -91,3 +91,28 @@ cite {
   text-align: right;
   font-size: 2rem;
 }
+
+/* line 84, ../sass/main.scss */
+footer {
+  padding: 1rem 0;
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+/* line 92, ../sass/main.scss */
+.moods {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0 auto;
+  padding: 0;
+}
+/* line 99, ../sass/main.scss */
+.moods li {
+  padding: 0 1rem;
+  cursor: pointer;
+}

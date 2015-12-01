@@ -80,3 +80,24 @@ cite {
 	text-align: right;
 	font-size: 2rem;
 }
+
+footer {
+	padding: 1rem 0;
+	font-family: 'Proxima Nova', sans-serif;
+	font-size: 0.7rem;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+}
+
+.moods {
+	@include display-flex(flex);
+	@include justify-content(space-around);
+	list-style-type: none;
+	margin: 0 auto;
+	padding: 0;
+
+	li {
+		padding: 0 1rem;
+		cursor: pointer;
+	}
+}
