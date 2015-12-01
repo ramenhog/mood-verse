@@ -20,10 +20,32 @@ html {
 	font-family: 'Vollkorn', serif;
 	font-size: 17px;
 	-webkit-font-smoothing: antialiased;
+	color: $white;
+	@include transition(all 0.4s ease-in-out);
+}
+
+body {
+	background-color: #d2d0d0;
 }
 
 .pomegranate {
 	background-color: $pomegranate;
+}
+
+.yellow {
+	background-color: $yellow;
+}
+
+.cerulean {
+	background-color: $cerulean;
+}
+
+.limeade {
+	background-color: $limeade;
+}
+
+.downriver {
+	background-color: $downriver;
 }
 
 p,

@@ -14,14 +14,44 @@ html {
   font-family: 'Vollkorn', serif;
   font-size: 17px;
   -webkit-font-smoothing: antialiased;
+  color: #fff;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
-/* line 25, ../sass/main.scss */
+/* line 27, ../sass/main.scss */
+body {
+  background-color: #d2d0d0;
+}
+
+/* line 31, ../sass/main.scss */
 .pomegranate {
   background-color: #f6511d;
 }
 
-/* line 29, ../sass/main.scss */
+/* line 35, ../sass/main.scss */
+.yellow {
+  background-color: #ffb400;
+}
+
+/* line 39, ../sass/main.scss */
+.cerulean {
+  background-color: #00a6ed;
+}
+
+/* line 43, ../sass/main.scss */
+.limeade {
+  background-color: #7fb800;
+}
+
+/* line 47, ../sass/main.scss */
+.downriver {
+  background-color: #0d2c54;
+}
+
+/* line 51, ../sass/main.scss */
 p,
 blockquote,
 cite {
@@ -29,7 +59,7 @@ cite {
   color: #fff;
 }
 
-/* line 36, ../sass/main.scss */
+/* line 58, ../sass/main.scss */
 section {
   position: relative;
   display: -webkit-flex;
@@ -41,20 +71,20 @@ section {
   flex: 1;
 }
 
-/* line 44, ../sass/main.scss */
+/* line 66, ../sass/main.scss */
 .quote {
   width: 70%;
   margin: 0 auto;
 }
 
-/* line 49, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 blockquote {
   display: block;
   font-size: 2.4rem;
   line-height: 1.4em;
 }
 
-/* line 55, ../sass/main.scss */
+/* line 77, ../sass/main.scss */
 cite {
   display: block;
   margin-top: 1.5rem;
