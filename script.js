@@ -3,51 +3,41 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 var verseCallback = function() {
+    var apiKey = 'Nism4wChMEVRVUobXFGxS3UWGtDUP2gKRe8xVq6z';
     var passage = "John+3:16-17";
+    var verses = [];
 
-    function randomPassage() {
-        var verses = [
-            'John 3:16-17',
-            'Romans 8:6',
-            '1 Peter 2:9',
-            '2 Corinthians 5:9-10',
-            'Ephesians 6:16-18',
-            '1 Corinthians 13:1-3'
-        ];
-        $.each(verses, function(index, value){
-            verses[index] = value.replace(' ','+');
+    function findTaggedRef(data) {
+        var references = data.response.tags[0].references;
+        $.each(references, function(index, val) {
+            verses.push({
+                start: references[index].reference.start/*,
+                end: references[index].reference.end*/
+            });
         });
-        var i = Math.floor((Math.random() * verses.length));
-        console.log(verses.length);
-        console.log(i);
-        return verses[i];
+        console.log(verses[0].start.replace('GNT:',''));
+        passage = verses[0].start.replace('GNT:','');
+        findPassages(passage);
     }
 
-    var passage = randomPassage();
-
-    var queryUrl = 'http://www.esvapi.org/v2/rest/passageQuery?key=IP&passage=' + passage + '&include-headings=false&include-footnotes=false&include-audio-link=false&include-short-copyright=false&output-format=plain-text';
-    var randomUrl = 'http://www.esvapi.org/v2/rest/verse?key=IP&include-headings=false&include-footnotes=false&include-audio-link=false&include-short-copyright=false&output-format=plain-text';
-
-    function format(data) {
-        var verse = '';
-        data = data.replace('=======================================================','').replace(/_______________________________________________________/g, '').split('[');
-
-        $('cite').html(data[0]);
-
-        $.each(data, function (i) {
-            if (i > 0) {
-                var line = data[i].split(']');
-                verse += line[1];
+    function findPassages(passage){
+        $.ajax({
+            url: 'https://bibles.org/v2/passages.js?q[]='+passage+'&version=eng-ESV',
+            dataType: 'json',
+            success: function(json) {
+                console.log(json.response.search.result.passages[0].text);
+                $('#scripture').html(json.response.search.result.passages[0].text);
             }
         });
-        return verse;
     }
 
+    // Uses http://bibles.org/pages/api/
     $.ajax({
-        url: queryUrl,  
-        success:function(data) {
-            data = format(data);
-            $('#scripture').html(data);
+        url: "https://bibles.org/v2/tags/peace.js",  
+        username: apiKey,
+        dataType: 'json',
+        success: function(json) {
+            findTaggedRef(json);
         }
     });
 
@@ -75,7 +65,3 @@ var verseCallback = function() {
     }
     changeColor();
 };
-
-$('body').click(function(){
-    verseCallback();
-});
