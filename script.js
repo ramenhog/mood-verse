@@ -2,52 +2,49 @@ document.addEventListener("DOMContentLoaded", function() {
     chrome.management.getAll(verseCallback);
 });
 
-var verseCallback = function() {
-    var apiKey = 'Nism4wChMEVRVUobXFGxS3UWGtDUP2gKRe8xVq6z';
-    var passage = "John+3:16-17";
-    var categories = [
-        'peace',
-        'love',
-        'wisdom',
-        'doubt',
-        'salvation',
-        'christmas'
-    ];
-    var allVerses = [];
-    var cat = categories[Math.floor(Math.random() * categories.length)];
+var apiKey = 'Nism4wChMEVRVUobXFGxS3UWGtDUP2gKRe8xVq6z';
+var passage = "John+3:16-17";
 
-    findMoodVerses();
+var verseCallback = function() {
     getMood();
 
     function getMood() {
         $('.moods').find('li').on('click', function(e){
             cat = $(this).attr('id');
             e.stopPropagation();
-
+            console.log(cat);
             findMoodVerses();
         });
     }
     // Find references from 
     function findMoodVerses() {
         // Uses http://bibles.org/pages/api/
+
         $.ajax({
             url: 'https://bibles.org/v2/tags/'+cat+'.js',  
             username: apiKey,
             dataType: 'json',
             success: function(data) {
+                var allVerses = [];
                 var allReferences = data.response.tags[0].references;
-                var randomRef = allReferences[Math.floor(Math.random() * allReferences.length)];
-                var refStart = randomRef.reference.start;
-                var refEnd = randomRef.reference.end;
-                
-                var arr = refEnd.split('.'),
-                output = arr.pop();
 
-                refEnd = output;
+                $.each(allReferences, function(index, val) {
+                    var start = allReferences[index].reference.start;
+                    var end = allReferences[index].reference.end;
 
-                var totalRef = refStart+'-'+output;
-                console.log('totalref:'+totalRef);
-                passage = totalRef.replace('GNT:','');
+                    if (start.indexOf('KJV','GNT') > -1 ) {
+                        allVerses.push({
+                            start: allReferences[index].reference.start,
+                            end: allReferences[index].reference.end
+                        });
+                    }
+                });
+                var randomVerse = allVerses[Math.floor(Math.random() * allVerses.length)];
+
+                var refStart = randomVerse.start;
+                var refEnd = randomVerse.end;
+
+                var totalRef = refStart+'-'+refEnd;
                 findPassages(totalRef);
             }
         });
@@ -60,7 +57,6 @@ var verseCallback = function() {
             dataType: 'json',
             success: function(json) {
                 var script = json.response.search.result.passages[0].text;
-                console.log(script);
                 formatPassage(script);
             }
         });
@@ -68,8 +64,8 @@ var verseCallback = function() {
 
     function formatPassage(passage){
         var elem = $(passage);
-        elem.find('sup').remove().html;
-        var formatted = elem.html();
+        elem.find('sup, h3, h1, h2').remove();
+        var formatted = elem.text();
         console.log(formatted);
         $('#scripture').html(formatted);
     }
