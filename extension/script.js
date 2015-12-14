@@ -6,20 +6,43 @@ var apiKey = 'Nism4wChMEVRVUobXFGxS3UWGtDUP2gKRe8xVq6z';
 var passage = "John+3:16-17";
 
 var verseCallback = function() {
+    getCat();
     getMood();
 
     function getMood() {
         $('.moods').find('li').on('click', function(e){
-            cat = $(this).attr('id');
+            var cat = $(this).attr('id');
             e.stopPropagation();
-            console.log(cat);
-            findMoodVerses();
+            findMoodVerses(cat);
         });
     }
-    // Find references from 
-    function findMoodVerses() {
-        // Uses http://bibles.org/pages/api/
 
+    function getCat() {
+        $.ajax({
+            url: 'https://bibles.org/v2/tags.js',  
+            username: apiKey,
+            dataType: 'json',
+            success: function(data) {
+                var allTagIDs = [];
+                var allTags = data.response.tags;
+
+                $.each(allTags, function(index, val) {
+                    var tagID = allTags[index].id;
+                    allTagIDs.push(tagID);
+                });
+
+                console.log(allTagIDs);
+
+                var cat = allTagIDs[Math.floor(Math.random() * allTagIDs.length)];
+                
+                findMoodVerses(cat);
+            }
+        });
+    }
+
+    // Find references from 
+    function findMoodVerses(cat) {
+        // Uses http://bibles.org/pages/api/
         $.ajax({
             url: 'https://bibles.org/v2/tags/'+cat+'.js',  
             username: apiKey,
@@ -51,7 +74,6 @@ var verseCallback = function() {
     }
 
     function findPassages(passage){
-        console.log(passage);
         $.ajax({
             url: 'https://bibles.org/v2/passages.js?q[]='+passage+'&version=eng-ESV',
             dataType: 'json',
@@ -66,7 +88,6 @@ var verseCallback = function() {
         var elem = $(passage);
         elem.find('sup, h3, h1, h2').remove();
         var formatted = elem.text();
-        console.log(formatted);
         $('#scripture').html(formatted);
     }
 
