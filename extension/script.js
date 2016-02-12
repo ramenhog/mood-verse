@@ -104,7 +104,7 @@ var verseCallback = function() {
             dataType: 'json',
             success: function(json) {
                 var script = json.response.search.result.passages[0].text;
-                formatPassage(script);
+                formatPassage(script,passage);
             }
         });
     }
@@ -112,12 +112,14 @@ var verseCallback = function() {
         return this.charAt(0).toUpperCase() + this.slice(1);
     }
 
-    function formatPassage(passage){
+    function formatPassage(passage,cite){
         var elem = $(passage);
         elem.find('sup, h3, h1, h2').remove();
         var formatted = elem.text();
         formatted = formatted.capitalize();
         $('#scripture').html(formatted);
+        $('cite').html(cite.replace(/\+/g," "));
+        $('#scripture,cite').addClass('shown');
     }
 
     function changeColor(){

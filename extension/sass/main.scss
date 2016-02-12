@@ -83,6 +83,8 @@ blockquote {
 	display: block;
 	font-size: 2.4rem;
 	line-height: 1.4em;
+	opacity: 0;
+	@include transition(all 0.3s ease-in-out);
 }
 
 cite {
@@ -90,6 +92,12 @@ cite {
 	margin-top: 1.5rem;
 	text-align: right;
 	font-size: 2rem;
+	opacity: 0;
+	@include transition(all 0.3s ease-in-out);
+}
+
+.shown {
+	opacity: 1;
 }
 
 nav {
