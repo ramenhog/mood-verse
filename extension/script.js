@@ -6,8 +6,7 @@ var apiKey = 'Nism4wChMEVRVUobXFGxS3UWGtDUP2gKRe8xVq6z';
 var passage = "John+3:16-17";
 
 var verseCallback = function() {
-    getCat();
-    getMood();
+    findMoodVerses('peace');
 
     function getMood() {
         $('.moods').find('li').on('click', function(e){
@@ -30,8 +29,6 @@ var verseCallback = function() {
                     var tagID = allTags[index].id;
                     allTagIDs.push(tagID);
                 });
-
-                console.log(allTagIDs);
 
                 var cat = allTagIDs[Math.floor(Math.random() * allTagIDs.length)];
                 
@@ -68,12 +65,40 @@ var verseCallback = function() {
                 var refEnd = randomVerse.end;
 
                 var totalRef = refStart+'-'+refEnd;
-                findPassages(totalRef);
+                /*findPassages(totalRef);*/
             }
         });
     }
 
+    var encouraging = [
+        'Proverbs+18:10',
+        'Proverbs+3:5-6',
+        'Isaiah+41:10',
+        'John+14:27',
+        'John+16:33',
+        'Psalm+46:1-3',
+        '2+Timothy+1:7',
+        'Psalm+16:8',
+        'Psalm+55:22',
+        '1+Peter+5:7',
+        'Isaiah+26:3',
+        'Psalm+118:14-16',
+        'Psalm+119:114-115',
+        'Psalm+119:25',
+        'Psalm+119:50',
+        'Psalm+119:71',
+        'Psalm+120:1'
+    ];
+
+    function chooseRandomVerse(array){
+        var randomVerse = array[Math.floor(Math.random() * array.length)];
+        findPassages(randomVerse);
+    }
+
+    chooseRandomVerse(encouraging);
+
     function findPassages(passage){
+        console.log(passage);
         $.ajax({
             url: 'https://bibles.org/v2/passages.js?q[]='+passage+'&version=eng-ESV',
             dataType: 'json',
@@ -83,11 +108,15 @@ var verseCallback = function() {
             }
         });
     }
+    String.prototype.capitalize = function() {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    }
 
     function formatPassage(passage){
         var elem = $(passage);
         elem.find('sup, h3, h1, h2').remove();
         var formatted = elem.text();
+        formatted = formatted.capitalize();
         $('#scripture').html(formatted);
     }
 

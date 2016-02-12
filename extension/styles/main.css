@@ -1,4 +1,4 @@
-/* line 10, ../sass/main.scss */
+/* line 18, ../sass/main.scss */
 body,
 html {
   position: relative;
@@ -14,52 +14,55 @@ html {
   font-family: 'Vollkorn', serif;
   font-size: 17px;
   -webkit-font-smoothing: antialiased;
-  color: #fff;
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
 
-/* line 27, ../sass/main.scss */
+/* line 34, ../sass/main.scss */
 body {
   background-color: #d2d0d0;
 }
 
-/* line 31, ../sass/main.scss */
+/* line 38, ../sass/main.scss */
 .pomegranate {
-  background-color: #f6511d;
-}
-
-/* line 35, ../sass/main.scss */
-.yellow {
-  background-color: #ffb400;
-}
-
-/* line 39, ../sass/main.scss */
-.cerulean {
-  background-color: #00a6ed;
+  background-color: #331E36;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* line 43, ../sass/main.scss */
-.limeade {
-  background-color: #7fb800;
+.yellow {
+  background-color: #41337A;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-/* line 47, ../sass/main.scss */
+/* line 48, ../sass/main.scss */
+.cerulean {
+  background-color: #6EA4BF;
+  color: rgba(32, 23, 44, 0.5);
+}
+
+/* line 53, ../sass/main.scss */
+.limeade {
+  background-color: #C2EFEB;
+  color: rgba(32, 23, 44, 0.5);
+}
+
+/* line 58, ../sass/main.scss */
 .downriver {
   background-color: #0d2c54;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-/* line 51, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 p,
 blockquote,
 cite {
   font-weight: 400;
-  color: #fff;
 }
 
-/* line 58, ../sass/main.scss */
+/* line 69, ../sass/main.scss */
 section {
   position: relative;
   display: -webkit-flex;
@@ -71,20 +74,20 @@ section {
   flex: 1;
 }
 
-/* line 66, ../sass/main.scss */
+/* line 77, ../sass/main.scss */
 .quote {
   width: 70%;
   margin: 0 auto;
 }
 
-/* line 71, ../sass/main.scss */
+/* line 82, ../sass/main.scss */
 blockquote {
   display: block;
   font-size: 2.4rem;
   line-height: 1.4em;
 }
 
-/* line 77, ../sass/main.scss */
+/* line 88, ../sass/main.scss */
 cite {
   display: block;
   margin-top: 1.5rem;
@@ -92,8 +95,12 @@ cite {
   font-size: 2rem;
 }
 
-/* line 84, ../sass/main.scss */
-footer {
+/* line 95, ../sass/main.scss */
+nav {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: centered;
+  justify-content: centered;
   padding: 1rem 0;
   font-family: 'Proxima Nova', sans-serif;
   font-size: 0.7rem;
@@ -101,7 +108,7 @@ footer {
   letter-spacing: 4px;
 }
 
-/* line 92, ../sass/main.scss */
+/* line 105, ../sass/main.scss */
 .moods {
   display: -webkit-flex;
   display: flex;
@@ -110,9 +117,19 @@ footer {
   list-style-type: none;
   margin: 0 auto;
   padding: 0;
+  width: 200px;
 }
-/* line 99, ../sass/main.scss */
+/* line 113, ../sass/main.scss */
 .moods li {
-  padding: 0 1rem;
+  position: relative;
+  border: 1px solid rgba(32, 23, 44, 0.5);
+  border-radius: 100%;
+  width: 0.5rem;
+  height: 0.5rem;
   cursor: pointer;
+}
+/* line 121, ../sass/main.scss */
+.moods li span {
+  position: absolute;
+  display: none;
 }

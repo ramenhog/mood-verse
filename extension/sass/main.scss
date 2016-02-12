@@ -1,11 +1,19 @@
 @import "compass/css3";
 
-$pomegranate: #f6511d; //rgba(246, 81, 29, 100)
-$yellow: #ffb400; //rgba(255, 180, 0, 100)
-$cerulean: #00a6ed; //rgba(0, 166, 237, 100)
-$limeade: #7fb800; //rgba(127, 184, 0, 100)
+$pomegranate: #331E36; //rgba(246, 81, 29, 100)
+$yellow: #41337A; //rgba(255, 180, 0, 100)
+$cerulean: #6EA4BF; //rgba(0, 166, 237, 100)
+$limeade: #C2EFEB; //rgba(127, 184, 0, 100)
 $downriver: #0d2c54; //rgba(13, 44, 84, 100)
-$white: #fff;
+$white: rgba(#20172C,0.5);
+
+@function set-notification-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return $white; // Lighter backgorund, return dark color
+  } @else {
+    @return rgba(#fff,0.5); // Darker background, return light color
+  }
+}
 
 body,
 html {
@@ -20,7 +28,6 @@ html {
 	font-family: 'Vollkorn', serif;
 	font-size: 17px;
 	-webkit-font-smoothing: antialiased;
-	color: $white;
 	@include transition(all 0.4s ease-in-out);
 }
 
@@ -30,29 +37,33 @@ body {
 
 .pomegranate {
 	background-color: $pomegranate;
+	color: set-notification-text-color($pomegranate);
 }
 
 .yellow {
 	background-color: $yellow;
+	color: set-notification-text-color($yellow);
 }
 
 .cerulean {
 	background-color: $cerulean;
+	color: set-notification-text-color($cerulean);
 }
 
 .limeade {
 	background-color: $limeade;
+	color: set-notification-text-color($limeade);
 }
 
 .downriver {
 	background-color: $downriver;
+	color: set-notification-text-color($downriver);
 }
 
 p,
 blockquote,
 cite {
 	font-weight: 400;
-	color: $white;
 }
 
 section {
@@ -81,7 +92,9 @@ cite {
 	font-size: 2rem;
 }
 
-footer {
+nav {
+	@include display-flex(flex);
+	@include justify-content(centered);
 	padding: 1rem 0;
 	font-family: 'Proxima Nova', sans-serif;
 	font-size: 0.7rem;
@@ -95,9 +108,19 @@ footer {
 	list-style-type: none;
 	margin: 0 auto;
 	padding: 0;
+	width: 200px;
 
 	li {
-		padding: 0 1rem;
+		position: relative;
+		border: 1px solid $white;
+		border-radius: 100%;
+		width: 0.5rem;
+		height: 0.5rem;
 		cursor: pointer;
+
+		span {
+			position: absolute;
+			display: none;
+		}
 	}
 }
