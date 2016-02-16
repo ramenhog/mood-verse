@@ -4,26 +4,28 @@
     <meta charset="utf-8">
     <title>The Verse</title>
     <link rel="stylesheet" href="styles/main.css" />
-    <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Vollkorn|Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
   </head>
-  <body>
+  <body class="color1">
+    <header>
+      <div class="mood-search">
+        <div class="label">Themes</div>
+        <div class="select">
+          <div class="select-styled"></div>
+          <ul class="select-options" id="select">
+          </ul>
+        </div>
+      </div>
+    </header>
     <section>
       <div class="quote">
         <blockquote id="scripture"></blockquote>
         <cite></cite>
       </div>
     </section>
-    <footer>
-      <ul class="moods">
-        <li id="peace">peace</li>
-        <li id="love">love</li>
-        <li id="wisdom">wisdom</li>
-        <li id="doubt">doubt</li>
-        <li id="salvation">salvation</li>
-        <li id="christmas">christmas</li>
-      </ul>
-    </footer>
   </body>
 </html>
