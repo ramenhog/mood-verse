@@ -171,13 +171,18 @@ header {
 }
 
 /* line 168, ../sass/main.scss */
+.intro {
+  text-align: center;
+}
+
+/* line 172, ../sass/main.scss */
 blockquote {
   display: block;
   font-size: 2.4rem;
   line-height: 1.5em;
 }
 
-/* line 174, ../sass/main.scss */
+/* line 178, ../sass/main.scss */
 cite {
   display: block;
   margin-top: 1.5rem;
@@ -185,7 +190,7 @@ cite {
   font-size: 2rem;
 }
 
-/* line 181, ../sass/main.scss */
+/* line 185, ../sass/main.scss */
 nav {
   display: -webkit-flex;
   display: flex;
@@ -198,7 +203,7 @@ nav {
   letter-spacing: 4px;
 }
 
-/* line 191, ../sass/main.scss */
+/* line 195, ../sass/main.scss */
 .moods {
   display: -webkit-flex;
   display: flex;
@@ -209,7 +214,7 @@ nav {
   padding: 0;
   width: 200px;
 }
-/* line 199, ../sass/main.scss */
+/* line 203, ../sass/main.scss */
 .moods li {
   position: relative;
   border: 1px solid #fff;
@@ -218,23 +223,23 @@ nav {
   height: 0.5rem;
   cursor: pointer;
 }
-/* line 207, ../sass/main.scss */
+/* line 211, ../sass/main.scss */
 .moods li span {
   position: absolute;
   display: none;
 }
 
-/* line 215, ../sass/main.scss */
+/* line 219, ../sass/main.scss */
 .select-options {
   display: none;
 }
 
-/* line 220, ../sass/main.scss */
+/* line 224, ../sass/main.scss */
 .social-share {
   margin-bottom: 3rem;
 }
 
-/* line 224, ../sass/main.scss */
+/* line 228, ../sass/main.scss */
 .share-button {
   display: inline-block;
   width: 2.5rem;
@@ -252,7 +257,7 @@ nav {
   -webkit-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
 }
-/* line 238, ../sass/main.scss */
+/* line 242, ../sass/main.scss */
 .share-button:hover {
   opacity: 1;
 }

@@ -21,6 +21,10 @@ var verseCallback = function() {
 
         if (localStorage.verseMood) {
             getVerseByTopic(data);
+        } else {
+            console.log('no mood');
+                $('#scripture').html('<div class="intro">Choose your theme</div>');
+                $('.quote').fadeTo('400', 1);
         }
     }
 
@@ -44,6 +48,7 @@ var verseCallback = function() {
     function getPassage(passage){
         $.ajax({
             url: 'https://bibles.org/v2/passages.js?q[]='+passage+'&version=eng-ESV',
+            username: apiKey,
             dataType: 'json',
             success: function(json) {
                 var script = json.response.search.result.passages[0].text;
