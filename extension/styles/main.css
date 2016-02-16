@@ -14,10 +14,10 @@ html {
   font-family: 'Vollkorn', serif;
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
-  -moz-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  -webkit-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 @media screen and (max-width: 1024px) {
   /* line 23, ../sass/main.scss */
@@ -163,18 +163,18 @@ header {
 .quote {
   width: 70%;
   margin: 0 auto;
-}
-
-/* line 166, ../sass/main.scss */
-blockquote {
-  display: block;
-  font-size: 2.4rem;
-  line-height: 1.4em;
   opacity: 0;
   -moz-transition: opacity 0.3s ease-in-out;
   -o-transition: opacity 0.3s ease-in-out;
   -webkit-transition: opacity 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
+}
+
+/* line 168, ../sass/main.scss */
+blockquote {
+  display: block;
+  font-size: 2.4rem;
+  line-height: 1.4em;
 }
 
 /* line 174, ../sass/main.scss */
@@ -183,19 +183,9 @@ cite {
   margin-top: 1.5rem;
   text-align: right;
   font-size: 2rem;
-  opacity: 0;
-  -moz-transition: opacity 0.3s ease-in-out;
-  -o-transition: opacity 0.3s ease-in-out;
-  -webkit-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
 }
 
-/* line 183, ../sass/main.scss */
-.shown {
-  opacity: 1;
-}
-
-/* line 187, ../sass/main.scss */
+/* line 181, ../sass/main.scss */
 nav {
   display: -webkit-flex;
   display: flex;
@@ -208,7 +198,7 @@ nav {
   letter-spacing: 4px;
 }
 
-/* line 197, ../sass/main.scss */
+/* line 191, ../sass/main.scss */
 .moods {
   display: -webkit-flex;
   display: flex;
@@ -219,7 +209,7 @@ nav {
   padding: 0;
   width: 200px;
 }
-/* line 205, ../sass/main.scss */
+/* line 199, ../sass/main.scss */
 .moods li {
   position: relative;
   border: 1px solid #fff;
@@ -228,13 +218,41 @@ nav {
   height: 0.5rem;
   cursor: pointer;
 }
-/* line 213, ../sass/main.scss */
+/* line 207, ../sass/main.scss */
 .moods li span {
   position: absolute;
   display: none;
 }
 
-/* line 221, ../sass/main.scss */
+/* line 215, ../sass/main.scss */
 .select-options {
   display: none;
+}
+
+/* line 220, ../sass/main.scss */
+.social-share {
+  margin-bottom: 3rem;
+}
+
+/* line 224, ../sass/main.scss */
+.share-button {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0.2em;
+  border: 2px solid currentColor;
+  color: inherit;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 2.5rem;
+  opacity: 0.5;
+  box-sizing: border-box;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+/* line 238, ../sass/main.scss */
+.share-button:hover {
+  opacity: 1;
 }

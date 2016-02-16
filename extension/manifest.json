@@ -2,7 +2,7 @@
   	"manifest_version": 2,
     "name": "The New Tab Mood-Based Bible Verse extension",
     "description": "New tab",
-    "version": "0.1",
+    "version": "0.0.0.1",
     "permissions" : ["management"],
     "content_scripts": [
 		{

@@ -47,31 +47,29 @@ var verseCallback = function() {
             dataType: 'json',
             success: function(json) {
                 var script = json.response.search.result.passages[0].text;
-                formatPassage(script,passage);
+                $.when(formatPassage(script,passage)).then(function(){
+                    $('.quote').fadeTo('400', 1);
+                });
             }
         });
     }
 
     function formatPassage(passage,cite){
-        console.log('change');
-        $('#scripture,cite').fadeTo('slow', 0.1, function() {
-            changeColor(function(){
-                var elem = $(passage);
-                elem.find('sup, h3, h1, h2').remove();
-                var formatted = elem.text();
-                $('#scripture').html(formatted);
-                $('cite').html(cite.replace(/\+/g," "));
-                $('#scripture,cite').fadeTo('400', 1);
-            });
-        });
-        
+        changeColor();
+        var elem = $(passage);
+        elem.find('sup, h3, h1, h2').remove();
+        var formattedPassage = elem.text();
+        var formattedCite = cite.replace(/\+/g," ");
+        $('#scripture').html(formattedPassage);
+        $('cite').html(formattedCite);   
+
+        socialShares(formattedPassage,formattedCite);
     }
 
-    function changeColor(callback){
+    function changeColor(){
         $('body').removeClass();
         var num = Math.floor((Math.random() * 5) + 1);
         $('body').addClass('color'+num);
-        callback();
     }
 
     // Styling select menu
@@ -94,8 +92,9 @@ var verseCallback = function() {
             $(this).val($(this).attr('rel'));
             $list.hide();
             localStorage.verseMood = $(this).attr('rel');
-
-            getVerseByTopic(data);
+            $('.quote').fadeTo('400', 0, function() {
+                getVerseByTopic(data);
+            });
         });
       
         $(document).click(function() {
@@ -104,5 +103,4 @@ var verseCallback = function() {
         });
 
     }
-
 };
