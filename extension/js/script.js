@@ -60,11 +60,35 @@ var verseCallback = function() {
         elem.find('sup, h3, h1, h2').remove();
         var formattedPassage = elem.text();
         var formattedCite = cite.replace(/\+/g," ");
+
+        // capitalize
+        formattedPassage = formattedPassage.substr(0,1).toUpperCase()+formattedPassage.substr(1);
+
         $('#scripture').html(formattedPassage);
         $('cite').html(formattedCite);   
-
+        adjustFontSize();
         $('title').html('The Verse&nbsp;|&nbsp;'+formattedCite);
     }
+
+    function adjustFontSize(){
+
+        var $quote = $('#scripture');
+        
+        var $numWords = $quote.text().split(" ").length;
+        
+        if (($numWords >= 1) && ($numWords < 80)) {
+            $quote.css("font-size", "2.4rem");
+        }
+        else if (($numWords >= 80) && ($numWords < 150)) {
+            $quote.css("font-size", "2rem");
+        }
+        else if (($numWords >= 150) && ($numWords < 200)) {
+            $quote.css("font-size", "1.8rem");
+        }
+        else {
+            $quote.css("font-size", "1.5rem");
+        }    
+    };
 
     function changeColor(){
         $('body').removeClass();
