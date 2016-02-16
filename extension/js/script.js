@@ -47,14 +47,14 @@ var verseCallback = function() {
             dataType: 'json',
             success: function(json) {
                 var script = json.response.search.result.passages[0].text;
-                $.when(formatPassage(script,passage)).then(function(){
+                $.when(changeVerse(script,passage)).then(function(){
                     $('.quote').fadeTo('400', 1);
                 });
             }
         });
     }
 
-    function formatPassage(passage,cite){
+    function changeVerse(passage,cite){
         changeColor();
         var elem = $(passage);
         elem.find('sup, h3, h1, h2').remove();
@@ -63,7 +63,7 @@ var verseCallback = function() {
         $('#scripture').html(formattedPassage);
         $('cite').html(formattedCite);   
 
-        socialShares(formattedPassage,formattedCite);
+        $('title').html('The Verse&nbsp;|&nbsp;'+formattedCite);
     }
 
     function changeColor(){
@@ -101,6 +101,5 @@ var verseCallback = function() {
             $styledSelect.removeClass('active');
             $list.hide();
         });
-
     }
 };
