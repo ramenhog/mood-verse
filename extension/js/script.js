@@ -81,11 +81,14 @@ var verseCallback = function() {
         
         var $numWords = $quote.text().split(" ").length;
         
-        if (($numWords >= 1) && ($numWords < 80)) {
+        if (($numWords >=1 ) && ($numWords <20)) {
+            $quote.css("font-size", "2.7rem");
+        }
+        else if (($numWords >= 20) && ($numWords < 80)) {
             $quote.css("font-size", "2.4rem");
         }
         else if (($numWords >= 80) && ($numWords < 150)) {
-            $quote.css("font-size", "2rem");
+            $quote.css("font-size", "1.8rem");
         }
         else if (($numWords >= 150) && ($numWords < 200)) {
             $quote.css("font-size", "1.6rem");

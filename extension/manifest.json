@@ -1,7 +1,9 @@
 {
   	"manifest_version": 2,
     "name": "The Verse",
-    "description": "New tab",
+    "description": "New tab chrome extensions for topical verses",
+    "icons": { "48": "theverse48.png",
+              "128": "theverse128.png" },
     "version": "0.0.0.1",
     "permissions" : ["management"],
     "content_scripts": [
