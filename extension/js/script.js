@@ -51,8 +51,8 @@ var verseCallback = function() {
             username: apiKey,
             dataType: 'json',
             success: function(json) {
-                var script = json.response.search.result.passages[0].text;
-                $.when(changeVerse(script,passage)).then(function(){
+                var text = json.response.search.result.passages[0].text;
+                $.when(changeVerse(text,passage)).then(function(){
                     $('.quote').fadeTo('400', 1);
                 });
             }
@@ -61,15 +61,15 @@ var verseCallback = function() {
 
     function changeVerse(passage,cite){
         changeColor();
-        var elem = $(passage);
+        var elem = $('<div/>').html(passage);
         elem.find('sup, h3, h1, h2').remove();
         var formattedPassage = elem.text();
         var formattedCite = cite.replace(/\+/g," ");
-
         // capitalize
         formattedPassage = formattedPassage.substr(0,1).toUpperCase()+formattedPassage.substr(1);
 
         $('#scripture').html(formattedPassage);
+
         $('cite').html(formattedCite);   
         adjustFontSize();
         $('title').html('The Verse&nbsp;|&nbsp;'+formattedCite);
@@ -88,10 +88,13 @@ var verseCallback = function() {
             $quote.css("font-size", "2rem");
         }
         else if (($numWords >= 150) && ($numWords < 200)) {
-            $quote.css("font-size", "1.8rem");
+            $quote.css("font-size", "1.6rem");
+        }
+        else if (($numWords >= 200) && ($numWords < 250)) {
+            $quote.css("font-size", "1.4rem");
         }
         else {
-            $quote.css("font-size", "1.5rem");
+            $quote.css("font-size", "1.3rem");
         }    
     };
 
