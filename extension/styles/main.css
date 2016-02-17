@@ -12,7 +12,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: 'Vollkorn', serif;
-  font-size: 2vmin;
+  font-size: 15px;
   -webkit-font-smoothing: antialiased;
   -moz-transition: all 0.4s ease-in-out;
   -o-transition: all 0.4s ease-in-out;
