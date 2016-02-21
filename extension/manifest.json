@@ -4,7 +4,7 @@
     "description": "New tab chrome extensions for topical verses",
     "icons": { "48": "theverse48.png",
               "128": "theverse128.png" },
-    "version": "0.0.0.2",
+    "version": "0.0.0.3",
     "permissions" : ["management"],
     "content_scripts": [
 		{
