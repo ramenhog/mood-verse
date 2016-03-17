@@ -1,10 +1,10 @@
 {
   	"manifest_version": 2,
     "name": "The Verse",
-    "description": "New tab chrome extensions for topical verses",
+    "description": "A beautifully simple bible verse Chrome extension. Open a new tab to read a Bible verse that speaks to a topic of your choice. ",
     "icons": { "48": "theverse48.png",
               "128": "theverse128.png" },
-    "version": "0.0.0.3",
+    "version": "0.0.0.4",
     "permissions" : ["management"],
     "content_scripts": [
 		{
